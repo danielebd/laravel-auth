@@ -12,5 +12,7 @@
         <div class="fs-5">Budget: {{ $project->budget }}</div>
         <a href="" class="btn btn-sm btn-warning">Edit</a>
         <a href="" class="btn btn-sm btn-danger">Delete</a>
+        <a href="{{route('admin.projects.index')}}" class="btn btn-sm btn-primary">Home</a>
     </div>
+    
 @endsection

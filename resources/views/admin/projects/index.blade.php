@@ -2,9 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h2 class="py-5">
-            lista dei Progetti
+        <h2 class="pt-5">
+            Projects List
         </h2>
+
+        <div>
+            <a class="btn  btn-primary my-3" href="{{route('admin.projects.create')}}">Create</a>
+        </div>
 
         <table class="table">
             <thead>
