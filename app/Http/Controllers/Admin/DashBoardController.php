@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class DashBoardController extends Controller
 {
     public function index(){
+
+        //collega la rotta al file [admin/dashboard.blade.php]
         return view('admin.dashboard');
     }
 }

@@ -12,8 +12,10 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+    //al comando: php artisan seed, viene lanciata questa funzione 
     public function run()
     {
+        //al lancio del seed viene lanciato anche ProjectSeeder presente nello stesso namespace di questo seeder
         $this->call([
             ProjectSeeder::class
         ]);

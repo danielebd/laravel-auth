@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashBoardController;
+use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +22,13 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+
+    //route che consente di accedere alla funzione index
     Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
-    //Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    //Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    //Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //crea le route create,edit, destroy, ecc.. :php artisan route:list
+    Route::resource('projects', ProjectController::class);
+
 });
 
 require __DIR__ . '/auth.php';
