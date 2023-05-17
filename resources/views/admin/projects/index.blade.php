@@ -5,9 +5,13 @@
         <h2 class="pt-5">
             Projects List
         </h2>
-
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div>
-            <a class="btn  btn-primary my-3" href="{{route('admin.projects.create')}}">Create</a>
+            <a class="btn  btn-primary my-3" href="{{ route('admin.projects.create') }}">Create</a>
         </div>
 
         <table class="table">
@@ -24,17 +28,22 @@
             <tbody>
                 @foreach ($projects as $project)
                     <tr>
-                        <th scope="row">{{$project->title}}</th>
-                        <td>{{$project->slug}}</td>
-                        <td>{{$project->description}}</td>
-                        <td>{{$project->start_date}}</td>
-                        <td>{{($project->completed == 1) ? 'yes' : 'no'}}</td>
-                        <td>
-                            <a href="{{route('admin.projects.show', $project->slug)}}" class="btn btn-sm btn-primary">Show</a>
-                            <a href="" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="" class="btn btn-sm btn-danger">Delete</a>
+                        <th scope="row">{{ $project->title }}</th>
+                        <td>{{ $project->slug }}</td>
+                        <td>{{ $project->description }}</td>
+                        <td>{{ $project->start_date }}</td>
+                        <td>{{ $project->completed == 1 ? 'yes' : 'no' }}</td>
+                        <td class="d-flex">
+                            <a href="{{ route('admin.projects.show', $project->slug) }}"
+                                class="btn btn-sm btn-primary">Show</a>
+                            <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-sm btn-warning mx-3">Edit</a>
+                            <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
                         </td>
-                        
+
                     </tr>
                 @endforeach
 
