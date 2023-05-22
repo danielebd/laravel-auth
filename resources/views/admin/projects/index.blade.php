@@ -39,11 +39,6 @@
                             <a href="{{ route('admin.projects.edit', $project->slug) }}"
                                 class="btn btn-sm btn-warning mx-3">Edit</a>
                             <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#project-{{$project->id}}">Delete</a>
-                            {{-- <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-sm btn-danger">Delete</button>
-                            </form> --}}
                         </td>
 
                     </tr>
