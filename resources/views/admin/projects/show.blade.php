@@ -10,9 +10,13 @@
         <div class="fs-5">Completed: {{ $project->completed == 1 ? 'yes' : 'no' }}</div>
         <div class="fs-5">Creared By: {{ $project->created_by }}</div>
         <div class="fs-5">Budget: {{ $project->budget }}</div>
-        <a href="" class="btn btn-sm btn-warning">Edit</a>
-        <a href="" class="btn btn-sm btn-danger">Delete</a>
-        <a href="{{route('admin.projects.index')}}" class="btn btn-sm btn-primary">Home</a>
+        @if ($project->image)
+            <div class="fs-5">image:
+                <img src="{{ asset('storage/' . $project->image) }}" alt="">
+            </div>
+        @endif
+            <a href="" class="btn btn-sm btn-warning">Edit</a>
+            <a href="" class="btn btn-sm btn-danger">Delete</a>
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-sm btn-primary">Home</a>
     </div>
-    
 @endsection
