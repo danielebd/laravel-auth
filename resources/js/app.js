@@ -1,12 +1,21 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
 import '~resources/scss/app.scss';
+import * as bootstrap from 'bootstrap';
 import.meta.glob([
     '../img/**'
 ]);
 
-import * as bootstrap from 'bootstrap';
+const imageIntup = document.querySelector('#image');
 
-window.Alpine = Alpine;
+imageIntup.addEventListener('change', showPreview);
 
-Alpine.start();
+function showPreview(event) {
+    if (event.target.files.length > 0){
+        const src = URL.createObjectURL(event.target.files[0]);
+        const preview = document.getElementById("file-image-preview");
+        preview.src = src;
+        preview.style.display = "block";
+        console.log('ciao');
+    }
+}

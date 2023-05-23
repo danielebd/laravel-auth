@@ -11,7 +11,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data" class="form-input-image">
             @csrf
             <div class="row">
                 <div class="col mb-3">
@@ -52,6 +52,9 @@
                 <label class="form-check-label" for="completed">Completed</label>
             </div>
             <div class="mb-3">
+                <div class="preview">
+                    <img id="file-image-preview">
+                </div>
                 <label for="image" class="form-label">Image</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>

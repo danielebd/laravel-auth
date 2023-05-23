@@ -11,7 +11,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
@@ -54,14 +54,9 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input class="form-control" type="file" id="image" name="image" value="{{ $project->image }}">
+                <input class="form-control" type="file" id="image" name="image">
             </div>
-            @if ($project->image)
-                <div>
-                    <label>Existing Image:</label>
-                    <img src="{{ $project->image }}" alt="Existing Image">
-                </div>
-            @endif
+            <br>
             <button type="submit" class="btn btn-primary">Modifica</button>
         </form>
     </div>

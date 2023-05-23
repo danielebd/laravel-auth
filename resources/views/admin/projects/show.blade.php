@@ -11,12 +11,14 @@
         <div class="fs-5">Creared By: {{ $project->created_by }}</div>
         <div class="fs-5">Budget: {{ $project->budget }}</div>
         @if ($project->image)
-            <div class="fs-5">image:
-                <img src="{{ asset('storage/' . $project->image) }}" alt="">
-            </div>
+            <div class="fs-5">image: </div>
+            <img src="{{ asset('storage/' . $project->image) }}" alt="">
         @endif
+        <div class="my-3">
             <a href="" class="btn btn-sm btn-warning">Edit</a>
             <a href="" class="btn btn-sm btn-danger">Delete</a>
             <a href="{{ route('admin.projects.index') }}" class="btn btn-sm btn-primary">Home</a>
+        </div>
+
     </div>
 @endsection
