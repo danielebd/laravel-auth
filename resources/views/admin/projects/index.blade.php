@@ -31,6 +31,8 @@
                         <th scope="row">{{ $project->title }}</th>
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->description }}</td>
+                        <td>@if ($project->image) img
+                        @endif </td>
                         <td>{{ $project->start_date }}</td>
                         <td>{{ $project->completed == 1 ? 'yes' : 'no' }}</td>
                         <td class="d-flex">

@@ -92,6 +92,9 @@ class ProjectController extends Controller
         $project->update($data);
         $project->slug = Str::slug($data['title']);
         if (isset($data['image'])) {
+            if($project->image){
+                Storage::delete($project->image);
+            }
             $project->image = Storage::put('uploads', $data['image']);
         }
         $project->save();
