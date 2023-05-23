@@ -53,11 +53,14 @@
                 <label class="form-check-label" for="completed">Completed</label>
             </div>
             <div class="mb-3">
+                <div class="preview">
+                    <img id="file-image-preview" @if ($project->image) src="{{ asset('storage/' . $project->image) }}"@endif>
+                </div>
                 <label for="image" class="form-label">Image</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Modifica</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>
 @endsection

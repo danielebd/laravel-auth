@@ -89,15 +89,13 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-
         $project->update($data);
-
         $project->slug = Str::slug($data['title']);
-
+        if (isset($data['image'])) {
+            $project->image = Storage::put('uploads', $data['image']);
+        }
         $project->save();
-
         session()->flash('success', 'Modifica avvenuta con successo.');
-
         return redirect()->route('admin.projects.index');
     }
 
@@ -109,6 +107,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->image){
+            Storage::delete($project->image);
+        }
+
         $project->delete();
 
         session()->flash('success', 'Calcellazione avvenuta con successo.');

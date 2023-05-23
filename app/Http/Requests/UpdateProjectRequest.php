@@ -37,7 +37,8 @@ class UpdateProjectRequest extends FormRequest
             'end_date'  => 'date|nullable|after_or_equal:start_date',
             'completed' => 'nullable',
             'created_by' => 'nullable|integer|min:0',
-            'budget' => 'nullable|numeric|min:0'
+            'budget' => 'nullable|numeric|min:0',
+            'image' => 'nullable|image|max:4000'
 
         ];
     }

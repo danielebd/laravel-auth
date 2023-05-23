@@ -21,7 +21,7 @@
                 <div class="col mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea type="text" class="form-control" id="description" name="description" cols="30" rows="4"
-                        value="{{ old('description') }}"></textarea>
+                        >{{ old('description') }}</textarea>
                 </div>
             </div>
             <div class="row">
