@@ -6,9 +6,21 @@ import.meta.glob([
     '../img/**'
 ]);
 
-const imageIntup = document.querySelector('#image');
+const imageInput = document.querySelector('#image');
+const setImage = document.getElementById('switch');
+const imageContainer = document.querySelector('.preview');
 
-imageIntup.addEventListener('change', showPreview);
+
+imageInput.addEventListener('change', showPreview);
+setImage.addEventListener('change', function(){
+    if(setImage.checked){
+        imageContainer.classList.remove('d-none');
+        imageContainer.classList.add('d-block');
+    } else {
+        imageContainer.classList.remove('d-block');
+        imageContainer.classList.add('d-none');
+    }
+});
 
 function showPreview(event) {
     if (event.target.files.length > 0){

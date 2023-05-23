@@ -52,9 +52,14 @@
                     value="{{ $project->completed }}">
                 <label class="form-check-label" for="completed">Completed</label>
             </div>
+
             <div class="mb-3">
                 <div class="preview">
-                    <img id="file-image-preview" @if ($project->image) src="{{ asset('storage/' . $project->image) }}"@endif>
+                    <img id="file-image-preview" @if ($project->image) src="{{ asset('storage/' . $project->image) }}" @endif>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switch" checked>
+                    <label class="form-check-label" for="switch">Attiva per gestire immagine</label>
                 </div>
                 <label for="image" class="form-label">Image</label>
                 <input class="form-control" type="file" id="image" name="image">
